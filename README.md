@@ -40,9 +40,9 @@ Configuración del proyecto en Cloudflare:
    En Cloudflare, *Workers & Pages → vicentemondaca → Deployments* aparece el deploy nuevo.
    Cuando termina, recarga la página.
 
-2. **Agregar una tarjeta.** En *En qué trabajo* de `index.html` se copia un `<li class="tarjeta">`
-   completo, se cambia el título y el texto, y se hace push igual que arriba. La grilla la
-   acomoda sola.
+2. **Agregar un logro.** En `index.html`, dentro de `<ul class="logros">`, se copia un
+   `<li class="logro">` completo, se cambia el número y el texto, y se hace push igual que
+   arriba. La grilla lo acomoda sola.
 
 3. **Cambiar un color.** Todos los colores están arriba en `estilos.css`, en `:root`.
    Cambiar `--cf-green` cambia de una vez los botones, los íconos y el avatar. Después se
