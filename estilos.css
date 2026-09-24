@@ -1,25 +1,16 @@
-/* Colores: se cambian aquí y se aplican en toda la página */
+/* Colores del design system de ComunidadFeliz: se cambian aquí y se aplican en toda la página */
 :root {
-  --fondo: #f7f7f5;
-  --superficie: #ffffff;
-  --texto: #1c1c1e;
-  --texto-suave: #5f6368;
-  --borde: #e3e3df;
-  --acento: #2f6fed;
-  --acento-suave: #e7efff;
-}
-
-/* Modo oscuro automático según la configuración del computador */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --fondo: #121214;
-    --superficie: #1c1c20;
-    --texto: #ececef;
-    --texto-suave: #a1a1aa;
-    --borde: #2e2e34;
-    --acento: #7aa5ff;
-    --acento-suave: #1f2a44;
-  }
+  --cf-green: #4CBF8C;        /* botones, íconos, avatar. Nunca como color de texto */
+  --cf-green-text: #00A27F;   /* único verde permitido para texto */
+  --cf-green-hover: #50D6A5;
+  --cf-green-light: #C6F7E1;
+  --cf-text: #232942;
+  --cf-text-2: #4C516D;
+  --cf-text-on-color: #FAFAFA;
+  --cf-bg-white: #FFFFFF;
+  --cf-bg-gray: #F4F4F4;
+  --cf-border: #CCCCCC;
+  --cf-hover-sec: #E6E6E6;
 }
 
 * {
@@ -28,69 +19,150 @@
 
 body {
   margin: 0;
-  background: var(--fondo);
-  color: var(--texto);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 17px;
-  line-height: 1.6;
+  background: var(--cf-bg-white);
+  color: var(--cf-text);
+  font-family: 'Montserrat', Helvetica, Arial, Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.25px;
 }
 
+/* 8 columnas de la grilla web: 8 × 90px + 7 × 20px = 860px */
 .contenedor {
-  max-width: 720px;
+  max-width: 860px;
   margin: 0 auto;
-  padding: 64px 16px 32px;
+  padding: 0 32px;
 }
 
-.intro {
-  margin-bottom: 48px;
+/* Portada */
+.hero {
+  padding: 64px 0 56px;
 }
 
 .avatar {
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: var(--acento);
-  color: #fff;
+  background: var(--cf-green);
+  color: var(--cf-text-on-color);
   font-weight: 700;
-  font-size: 24px;
+  font-size: 32px;
   letter-spacing: 1px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .etiqueta {
-  margin: 0;
-  color: var(--acento);
+  margin: 0 0 8px;
+  color: var(--cf-green-text);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+/* Headline 2 */
+h1 {
+  margin: 0 0 16px;
+  font-weight: 300;
+  font-size: 60px;
+  line-height: 72px;
+  letter-spacing: -0.5px;
+}
+
+/* Bajada de título */
+.bajada {
+  margin: 0 0 32px;
+  max-width: 560px;
+  color: var(--cf-text-2);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+.bajada strong {
+  color: var(--cf-text);
+  font-weight: 700;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Botón de marketing */
+.boton {
+  display: inline-block;
+  padding: 8px 32px;
+  border-radius: 25px;
   font-weight: 600;
   font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: background-color 0.15s;
 }
 
-h1 {
-  margin: 4px 0 12px;
-  font-size: clamp(36px, 7vw, 52px);
-  line-height: 1.1;
+.boton-primario {
+  background: var(--cf-green);
+  color: var(--cf-text-on-color);
 }
 
-.bajada {
-  margin: 0;
-  font-size: 20px;
-  color: var(--texto-suave);
-  max-width: 34em;
+.boton-primario:hover {
+  background: var(--cf-green-hover);
 }
 
-section {
-  margin-bottom: 40px;
+.boton-primario:active {
+  background: var(--cf-green-text);
 }
 
+.boton-secundario {
+  background: var(--cf-bg-white);
+  color: var(--cf-text);
+  border: 1px solid var(--cf-border);
+  padding: 7px 31px;
+}
+
+.boton-secundario:hover {
+  background: var(--cf-hover-sec);
+}
+
+.boton:focus-visible,
+.contacto a:focus-visible {
+  outline: 2px solid var(--cf-green-text);
+  outline-offset: 4px;
+}
+
+/* Secciones */
+.seccion {
+  padding: 48px 0;
+}
+
+.seccion-gris {
+  background: var(--cf-bg-gray);
+}
+
+/* Headline 5 */
 h2 {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--texto-suave);
-  margin: 0 0 12px;
+  margin: 0 0 24px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.texto-largo {
+  margin: 0;
+  max-width: 640px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+.texto-largo strong {
+  font-weight: 700;
 }
 
 .tarjetas {
@@ -98,59 +170,113 @@ h2 {
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .tarjeta {
-  background: var(--superficie);
-  border: 1px solid var(--borde);
-  border-radius: 12px;
-  padding: 18px;
+  background: var(--cf-bg-white);
+  border: 1px solid var(--cf-border);
+  border-radius: 8px;
+  padding: 24px;
 }
 
+.icono {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+  fill: none;
+  stroke: var(--cf-green);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Headline 6 */
 .tarjeta h3 {
-  margin: 0 0 6px;
-  font-size: 17px;
+  margin: 0 0 8px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
 }
 
 .tarjeta p {
   margin: 0;
-  font-size: 15px;
-  color: var(--texto-suave);
+  color: var(--cf-text-2);
 }
 
-.links {
+.contacto {
   list-style: none;
   padding: 0;
   margin: 0;
+  border-top: 1px solid var(--cf-border);
+}
+
+.contacto li {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  align-items: baseline;
+  gap: 4px 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--cf-border);
 }
 
-.links a {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 999px;
-  background: var(--acento-suave);
-  color: var(--acento);
+.contacto-tipo {
+  width: 96px;
+  color: var(--cf-text-2);
+}
+
+.contacto a {
+  color: var(--cf-green-text);
   font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
-.links a:hover {
+.contacto a:hover {
   text-decoration: underline;
 }
 
+/* Caption */
 .pie {
-  border-top: 1px solid var(--borde);
-  padding: 20px 16px 40px;
+  background: var(--cf-bg-gray);
+  padding: 24px 16px 32px;
   text-align: center;
-  font-size: 14px;
-  color: var(--texto-suave);
+  color: var(--cf-text-2);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
 }
 
 .pie p {
   margin: 0;
+}
+
+/* Mobile: margen de 16px y el nombre baja a Headline 4 */
+@media (max-width: 600px) {
+  .contenedor {
+    padding: 0 16px;
+  }
+
+  .hero {
+    padding: 40px 0 40px;
+  }
+
+  h1 {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: 0.25px;
+  }
+
+  .seccion {
+    padding: 40px 0;
+  }
+
+  .contacto-tipo {
+    width: 100%;
+  }
 }
